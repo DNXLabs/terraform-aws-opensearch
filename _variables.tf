@@ -229,7 +229,7 @@ variable "log_publishing_options" {
 
 variable "advanced_security_options_enabled" {
   type    = bool
-  default = false
+  default = true
 }
 
 variable "advanced_security_options_internal_user_db" {
