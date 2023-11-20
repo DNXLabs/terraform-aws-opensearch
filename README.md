@@ -129,6 +129,8 @@ Here is a working example of using this Terraform module:
 | warm\_instance\_count | The number of dedicated warm nodes in the cluster. | `number` | `1` | no |
 | warm\_instance\_enabled | Indicates whether ultrawarm nodes are enabled for the cluster. | `bool` | `false` | no |
 | warm\_instance\_type | The type of EC2 instances to run for each warm node. A list of available instance types can you find at https://aws.amazon.com/en/elasticsearch-service/pricing/#UltraWarm_pricing | `string` | `"ultrawarm1.large.elasticsearch"` | no |
+| advanced\_security\_options\_enabled |	Whether advanced security is enabled | `bool` | false | no |
+| advanced\_security\_options\_internal\_user\_db | Whether to enable or not internal Kibana user database for ELK OpenDistro security plugin | `bool` | false | no |
 
 ## Outputs
 
