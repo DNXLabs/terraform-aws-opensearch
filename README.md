@@ -92,6 +92,8 @@ Here is a working example of using this Terraform module:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| advanced\_security\_options\_enabled | n/a | `bool` | `false` | no |
+| advanced\_security\_options\_internal\_user\_db | n/a | `bool` | `false` | no |
 | allow\_cidrs | List of CIDR to allow connection to this Cluster | <pre>list(object({<br>    name        = string<br>    description = string<br>    cidr        = list(string)<br>    from_port   = number<br>    to_port     = number<br>    protocol    = string<br>  }))</pre> | `[]` | no |
 | allow\_security\_group\_ids | List of Security Group IDs to allow connection to this Cluster | <pre>list(object({<br>    name              = string<br>    description       = string<br>    security_group_id = string<br>    from_port         = number<br>    to_port           = number<br>    protocol          = string<br>  }))</pre> | `[]` | no |
 | availability\_zones | The number of availability zones for the OpenSearch cluster. Valid values: 1, 2 or 3. | `number` | `1` | no |
@@ -129,8 +131,6 @@ Here is a working example of using this Terraform module:
 | warm\_instance\_count | The number of dedicated warm nodes in the cluster. | `number` | `1` | no |
 | warm\_instance\_enabled | Indicates whether ultrawarm nodes are enabled for the cluster. | `bool` | `false` | no |
 | warm\_instance\_type | The type of EC2 instances to run for each warm node. A list of available instance types can you find at https://aws.amazon.com/en/elasticsearch-service/pricing/#UltraWarm_pricing | `string` | `"ultrawarm1.large.elasticsearch"` | no |
-| advanced\_security\_options\_enabled |	Whether advanced security is enabled | `bool` | false | no |
-| advanced\_security\_options\_internal\_user\_db | Whether to enable or not internal Kibana user database for ELK OpenDistro security plugin | `bool` | false | no |
 
 ## Outputs
 
