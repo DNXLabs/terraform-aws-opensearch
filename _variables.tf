@@ -20,6 +20,12 @@ variable "cluster_hostname" {
   type        = string
 }
 
+variable "advanced_options" {
+  description = "Key-value string pairs to specify advanced configuration options."
+  type        = map(string)
+  default     = null
+}
+
 variable "vpc_id" {
   description = "VPC"
   type        = string
@@ -233,12 +239,14 @@ variable "advanced_security_options_enabled" {
     default     = false
 }
 
-variable "advanced_security_options_internal_user_db" {
-    description = "Indicates whether the internal user database is enabled."
-    type        = bool
-    default     = false
+variable "create_custom_endpoint" {
+  description = "Indicates whether to create a custom endpoint."
+  type    = bool
+  default = true
 }
 
-variable "create_custom_endpoint" {
-  default = true
+variable "advanced_security_options_internal_user_db" {
+  type    = bool
+  default = false
+
 }
