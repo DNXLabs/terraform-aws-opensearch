@@ -226,3 +226,19 @@ variable "log_publishing_options" {
   }))
   default = []
 }
+
+variable "advanced_security_options_enabled" {
+    description = "Indicates whether advanced security is enabled."
+    type        = bool
+    default     = false
+}
+
+variable "advanced_security_options_internal_user_db" {
+    description = "Indicates whether the internal user database is enabled."
+    type        = bool
+    default     = false
+}
+
+variable "create_custom_endpoint" {
+  default = true
+}
