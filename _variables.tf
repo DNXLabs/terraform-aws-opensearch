@@ -234,6 +234,13 @@ variable "log_publishing_options" {
 }
 
 variable "advanced_security_options_enabled" {
+    description = "Indicates whether advanced security is enabled."
+    type        = bool
+    default     = false
+}
+
+variable "create_custom_endpoint" {
+  description = "Indicates whether to create a custom endpoint."
   type    = bool
   default = true
 }
@@ -241,4 +248,5 @@ variable "advanced_security_options_enabled" {
 variable "advanced_security_options_internal_user_db" {
   type    = bool
   default = false
+
 }
