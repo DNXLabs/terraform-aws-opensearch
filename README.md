@@ -93,7 +93,7 @@ Here is a working example of using this Terraform module:
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | advanced\_options | Key-value string pairs to specify advanced configuration options. | `map(string)` | `null` | no |
-| advanced\_security\_options\_enabled | n/a | `bool` | `true` | no |
+| advanced\_security\_options\_enabled | Indicates whether advanced security is enabled. | `bool` | `false` | no |
 | advanced\_security\_options\_internal\_user\_db | n/a | `bool` | `false` | no |
 | allow\_cidrs | List of CIDR to allow connection to this Cluster | <pre>list(object({<br>    name        = string<br>    description = string<br>    cidr        = list(string)<br>    from_port   = number<br>    to_port     = number<br>    protocol    = string<br>  }))</pre> | `[]` | no |
 | allow\_security\_group\_ids | List of Security Group IDs to allow connection to this Cluster | <pre>list(object({<br>    name              = string<br>    description       = string<br>    security_group_id = string<br>    from_port         = number<br>    to_port           = number<br>    protocol          = string<br>  }))</pre> | `[]` | no |
@@ -102,6 +102,7 @@ Here is a working example of using this Terraform module:
 | cluster\_hostname | The hostname name of the OpenSearch cluster. | `string` | n/a | yes |
 | cluster\_name | The name of the OpenSearch cluster. | `string` | `"opensearch"` | no |
 | cluster\_version | The version of OpenSearch to deploy. | `string` | `"1.1"` | no |
+| create\_custom\_endpoint | Indicates whether to create a custom endpoint. | `bool` | `true` | no |
 | create\_service\_role | Indicates whether to create the service-linked role. See https://docs.aws.amazon.com/opensearch-service/latest/developerguide/slr.html | `bool` | `true` | no |
 | ebs\_enabled | n/a | `bool` | `true` | no |
 | ebs\_iops | n/a | `number` | `null` | no |
