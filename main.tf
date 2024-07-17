@@ -6,10 +6,9 @@ resource "aws_iam_service_linked_role" "es" {
 }
 
 
-
 resource "aws_elasticsearch_domain" "opensearch" {
   domain_name           = var.cluster_name
-  elasticsearch_version = "OpenSearch_${var.cluster_version}"
+  elasticsearch_version = var.cluster_version
   access_policies       = data.aws_iam_policy_document.access_policy.json
   advanced_options      = var.advanced_options
 
@@ -57,7 +56,7 @@ resource "aws_elasticsearch_domain" "opensearch" {
     enforce_https       = true
     tls_security_policy = "Policy-Min-TLS-1-2-2019-07"
 
-    custom_endpoint_enabled         = true
+    custom_endpoint_enabled         = var.create_custom_endpoint
     custom_endpoint                 = "${var.cluster_hostname}.${data.aws_route53_zone.opensearch.name}"
     custom_endpoint_certificate_arn = data.aws_acm_certificate.domain_host.arn
   }
