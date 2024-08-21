@@ -13,6 +13,12 @@ output "cluster_endpoint" {
   value       = "https://${aws_route53_record.opensearch.fqdn}"
 }
 
+output "cluster_vpc_endpoint" {
+  description = "The VPC endpoint URL of the OpenSearch cluster."
+  value       = try(aws_elasticsearch_domain.opensearch.endpoint, "")
+}
+
+
 output "kibana_endpoint" {
   description = "The endpoint URL of Kibana."
   value       = "https://${aws_route53_record.opensearch.fqdn}/_dashboards/"
