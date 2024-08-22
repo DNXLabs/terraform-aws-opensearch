@@ -141,6 +141,7 @@ Here is a working example of using this Terraform module:
 | cluster\_endpoint | The endpoint URL of the OpenSearch cluster. |
 | cluster\_name | The name of the OpenSearch cluster. |
 | cluster\_version | The version of the OpenSearch cluster. |
+| cluster\_vpc\_endpoint | The VPC endpoint URL of the OpenSearch cluster. |
 | kibana\_endpoint | The endpoint URL of Kibana. |
 
 <!--- END_TF_DOCS --->
