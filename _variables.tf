@@ -248,3 +248,17 @@ variable "advanced_security_options_internal_user_db" {
 variable "create_custom_endpoint" {
   default = true
 }
+
+
+
+variable "master_user_name" {
+  description = "enable user auth"
+  type        = string
+  default     = "test"
+}
+
+variable "master_user_password" {
+  description = "enable pass auth"
+  type        = string
+  default     = "test"
+}      
