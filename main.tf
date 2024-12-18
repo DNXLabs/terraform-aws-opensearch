@@ -49,7 +49,12 @@ resource "aws_elasticsearch_domain" "opensearch" {
 
     master_user_options {
       master_user_arn = (var.master_user_arn != "") ? var.master_user_arn : data.aws_caller_identity.current.arn
+      
+      // cerate user and pass
+      master_user_name     = var.master_user_name
+      master_user_password = var.master_user_password
     }
+
   }
 
   domain_endpoint_options {
