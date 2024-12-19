@@ -1,4 +1,5 @@
 resource "aws_ssm_parameter" "vpc_endpoint" {
+  count       = var.secret_method == "ssm" ? 1 : 0
   name        = "/opensearch/${var.cluster_name}/VPC_ENDPOINT"
   description = "OpenSearch VPC Endpoint"
   type        = "String"
@@ -6,6 +7,7 @@ resource "aws_ssm_parameter" "vpc_endpoint" {
 }
 
 resource "aws_ssm_parameter" "cluster_endpoint" {
+  count       = var.secret_method == "ssm" ? 1 : 0
   name        = "/opensearch/${var.cluster_name}/CLUSTER_ENDPOINT"
   description = "OpenSearch Cluster Endpoint"
   type        = "String"
@@ -13,6 +15,7 @@ resource "aws_ssm_parameter" "cluster_endpoint" {
 }
 
 resource "aws_ssm_parameter" "kibana_endpoint" {
+  count       = var.secret_method == "ssm" ? 1 : 0
   name        = "/opensearch/${var.cluster_name}/KIBANA_ENDPOINT"
   description = "OpenSearch Kibana Endpoint"
   type        = "String"
@@ -20,6 +23,7 @@ resource "aws_ssm_parameter" "kibana_endpoint" {
 }
 
 resource "aws_ssm_parameter" "username" {
+  count       = var.secret_method == "ssm" ? 1 : 0
   name        = "/opensearch/${var.cluster_name}/USERNAME"
   description = "OpenSearch Password"
   type        = "SecureString"
@@ -27,6 +31,7 @@ resource "aws_ssm_parameter" "username" {
 }
 
 resource "aws_ssm_parameter" "password" {
+  count       = var.secret_method == "ssm" ? 1 : 0
   name        = "/opensearch/${var.cluster_name}/PASSWORD"
   description = "OpenSearch Password"
   type        = "SecureString"

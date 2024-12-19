@@ -262,3 +262,9 @@ variable "master_user_password" {
   type        = string
   default     = ""
 }
+
+variable "secret_method" {
+  description = "Use ssm or secretsmangaer"
+  type        = string
+  default     = "ssm"
+}
