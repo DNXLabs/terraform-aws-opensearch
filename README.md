@@ -130,6 +130,7 @@ Here is a working example of using this Terraform module:
 | saml\_roles\_key | Element of the SAML assertion to use for backend roles. | `string` | `""` | no |
 | saml\_session\_timeout | Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440. | `number` | `60` | no |
 | saml\_subject\_key | Element of the SAML assertion to use for username. | `string` | `""` | no |
+| secret\_method | Use ssm or secretsmangaer | `string` | `"ssm"` | no |
 | subnets\_id | Subnets | `list(string)` | n/a | yes |
 | tags | A map of tags to add to all resources. | `map(string)` | `{}` | no |
 | vpc\_id | VPC | `string` | n/a | yes |
