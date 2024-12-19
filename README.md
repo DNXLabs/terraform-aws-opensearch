@@ -87,6 +87,7 @@ Here is a working example of using this Terraform module:
 | Name | Version |
 |------|---------|
 | aws | > 4.0 |
+| random | n/a |
 
 ## Inputs
 
@@ -121,7 +122,7 @@ Here is a working example of using this Terraform module:
 | master\_instance\_type | The type of EC2 instances to run for each master node. A list of available instance types can you find at https://aws.amazon.com/en/opensearch-service/pricing/#On-Demand_instance_pricing | `string` | `"r6gd.large.elasticsearch"` | no |
 | master\_user\_arn | The ARN for the master user of the cluster. If not specified, then it defaults to using the IAM user that is making the request. | `string` | `""` | no |
 | master\_user\_name | enable user auth | `string` | `"test"` | no |
-| master\_user\_password | enable pass auth | `string` | `"test"` | no |
+| master\_user\_password | enable pass auth | `string` | `""` | no |
 | saml\_entity\_id | The unique Entity ID of the application in SAML Identity Provider. | `string` | n/a | yes |
 | saml\_master\_backend\_role | SAML Master backend role. | `string` | `""` | no |
 | saml\_master\_user\_name | SAML master user name | `string` | `""` | no |
@@ -129,6 +130,7 @@ Here is a working example of using this Terraform module:
 | saml\_roles\_key | Element of the SAML assertion to use for backend roles. | `string` | `""` | no |
 | saml\_session\_timeout | Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440. | `number` | `60` | no |
 | saml\_subject\_key | Element of the SAML assertion to use for username. | `string` | `""` | no |
+| secret\_method | Use ssm or secretsmangaer | `string` | `"ssm"` | no |
 | subnets\_id | Subnets | `list(string)` | n/a | yes |
 | tags | A map of tags to add to all resources. | `map(string)` | `{}` | no |
 | vpc\_id | VPC | `string` | n/a | yes |

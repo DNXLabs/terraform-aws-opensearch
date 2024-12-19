@@ -5,6 +5,10 @@ resource "aws_iam_service_linked_role" "es" {
   aws_service_name = "es.amazonaws.com"
 }
 
+resource "random_string" "password" {
+  count  = var.master_user_password == "" ? 1 : 0
+  length = 34
+}
 
 resource "aws_elasticsearch_domain" "opensearch" {
   domain_name           = var.cluster_name
@@ -49,10 +53,10 @@ resource "aws_elasticsearch_domain" "opensearch" {
 
     master_user_options {
       master_user_arn = (var.master_user_arn != "") ? var.master_user_arn : null //data.aws_caller_identity.current.arn
-      
+
       // cerate user and pass
       master_user_name     = var.master_user_name
-      master_user_password = var.master_user_password
+      master_user_password = var.master_user_password == "" ? random_string.password[0].result : var.master_user_password
     }
 
   }
