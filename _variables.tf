@@ -260,5 +260,5 @@ variable "master_user_name" {
 variable "master_user_password" {
   description = "enable pass auth"
   type        = string
-  default     = "test"
-}      
+  default     = ""
+}
